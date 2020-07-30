@@ -24,15 +24,41 @@ export const Content = styled.div`
   justify-content: center;
   border-radius: 14px;
   position: relative;
+  animation: slideup .5s ease-out;
 
   img {
     height: 450px;
     width: 450px;
   }
+
+  button {
+    background: #23395B;
+    color: white;
+  }
+
+  .crop-btn {
+    margin-top: 40px;
+    border-radius: 12px;
+  }
+
+  @keyframes slideup {
+    from {
+      opacity: 0;
+      transform: translateY(-50vh);
+    } 
+    30% {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 `
 
 export const CloseButton = styled.button`
   position: absolute;
+  margin: 0;
+  border-radius: 14px;
   padding: 10px;
   top: 20px;
   right: 20px;

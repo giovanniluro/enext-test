@@ -56,7 +56,7 @@ const Cropper: React.FC<CropperProps> = ({ src, setSrc, setCropper, setImg }) =>
     <Container>
       <Content>
         <ReactCrop src={src} onImageLoaded={setImage} crop={crop} onChange={setCrop} />
-        <button onClick={getCroppedImg}> Recortar </button>
+        <button className='crop-btn' onClick={getCroppedImg}> Recortar </button>
         <CloseButton className='btn-close' onClick={handleClose}><FiX size={26} /></CloseButton>
       </Content>
     </Container>

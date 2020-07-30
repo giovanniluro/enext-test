@@ -16,6 +16,7 @@ export const Header = styled.div`
   h2 {
     padding: 20px;
     width: 100%;
+    font-size: 18px;
     color: white;
     text-align: center;
   }

@@ -4,6 +4,7 @@ export const Container = styled.div`
   height: 100%;
   width: 100%;
   padding: 20px;
+  overflow: hidden;
 `
 
 export const FormContent = styled.form`
@@ -22,39 +23,6 @@ export const FormContent = styled.form`
     color: white;
     border-radius: 12px;
   }
-`
-
-export const Input = styled.label`
-  width: 100%;
-
-  > div {
-    display: flex;
-    align-items: center;
-
-    svg { 
-      margin-right: 10px;
-      color: #23395B;
-    }
-    
-    span {
-      font-weight: bold;
-      font-size: 16px;
-    }
-  }
-
-  input {
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid #23395B;
-    padding: 8px 4px;
-    font-size: 14px;
-
-
-    &:focus {
-      outline: 0;
-    }
-  }
-
 `
 
 export const ImageInput = styled.div`
@@ -88,8 +56,7 @@ export const ImageInput = styled.div`
     }
 
     &:hover {
-      background: #3C4C53;
+      background: #17263A;;
     }
   }
-
 `

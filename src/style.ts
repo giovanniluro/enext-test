@@ -29,9 +29,14 @@ export default createGlobalStyle`
     padding: 15px 30px;
     font-size: 18px;
     font-weight: 500;
+    transition: .4s;
 
     &:focus {
       outline: 0;
+    }
+
+    &:hover{
+      background: #17263A;
     }
   }
 

@@ -1,11 +1,14 @@
 import React, { useState, useCallback, ChangeEvent } from 'react';
 import defaultUser from '../../assets/user.jpg';
 import Cropper from '../Cropper';
-import { Container, ImageInput, FormContent, Input } from './style';
+import Input from '../Input';
+import Thanks from '../Thanks';
+import { Container, ImageInput, FormContent } from './style';
 import { FiCamera, FiHome, FiUser, FiMail, FiPhone } from 'react-icons/fi';
 
 const Form: React.FC = () => {
 
+  const [formIsDone, setFormIsDone] = useState(false);
   const [cropper, setCropper] = useState(false);
   const [image, setImage] = useState<string>('');
   const [userAvatar, setUserAvatar] = useState<string>(defaultUser);
@@ -19,61 +22,41 @@ const Form: React.FC = () => {
     if (e.target.files) {
       setImage(URL.createObjectURL(e.target.files[0]));
       setCropper(true);
+      e.target.value = '';
     }
   }, []);
 
+  //FormUpload
   const handleFormSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setFormIsDone(true);
   }, []);
 
   return (
     <>
       <Container>
-        <FormContent onSubmit={handleFormSubmit}>
+        {!formIsDone &&
+          <FormContent onSubmit={handleFormSubmit}>
 
-          <ImageInput>
-            <img src={userAvatar} alt='avatar' />
-            <label>
-              <FiCamera size={22} />
-              <input type='file' accept='image/*' onChange={handleAvatarChange} />
-            </label>
-          </ImageInput>
+            <ImageInput>
+              <img src={userAvatar} alt='avatar' />
+              <label>
+                <FiCamera size={22} />
+                <input type='file' accept='image/*' onChange={handleAvatarChange} />
+              </label>
+            </ImageInput>
 
-          <Input>
-            <div>
-              <FiUser size={24} />
-              <span>Nome:</span>
-            </div>
-            <input type='text' value={name} onChange={e => setName(e.target.value)}/>
-          </Input>
-
-          <Input>
-            <div>
-              <FiMail size={24} />
-              <span>E-mail:</span>
-            </div>
-            <input type='email' value={email} onChange={e => setEmail(e.target.value)}/>
-          </Input>
-
-          <Input>
-            <div>
-              <FiHome size={24} />
-              <span>Depertamento:</span>
-            </div>
-            <input type='text' value={departament} onChange={e => setDepartament(e.target.value)}/>
-          </Input>
-
-          <Input>
-            <div>
-              <FiPhone size={24} />
-              <span>Telefone:</span>
-            </div>
-            <input type='tel' value={phone} onChange={e => setPhone(e.target.value)}/>
-          </Input>
-
-          <button type='submit'>Enviar</button>
-        </FormContent>
+            <Input icon={<FiUser />} title='Nome:' value={name} setValue={setName} type='text' placeholder='Luiz Henrique' />
+            <Input icon={<FiMail />} title='E-mail:' value={email} setValue={setEmail} type='email' placeholder='luiz.henrique@outlook.com'/>
+            <Input icon={<FiHome />} title='Departamento:' value={departament} setValue={setDepartament} type='text' placeholder='Departamento de T.I' />
+            <Input icon={<FiPhone />} title='Telefone:' value={phone} setValue={setPhone} type='text' placeholder='(19)-34684573'/>
+              
+            <button type='submit'>Enviar</button>
+          </FormContent>
+        }
+        {formIsDone && 
+          <Thanks name={name} avatar={userAvatar} />
+        }
       </Container>
       {cropper && <Cropper src={image} setCropper={setCropper} setSrc={setUserAvatar} setImg={setImage} />}
     </>
