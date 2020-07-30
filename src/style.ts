@@ -19,8 +19,20 @@ export default createGlobalStyle`
     width: 100%;
   }
 
+  p, h1, h2, h3, h4 {
+    color: #0F0F0F;
+  }
+
   button {
     cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 500;
+
+    &:focus {
+      outline: 0;
+    }
   }
 
 `

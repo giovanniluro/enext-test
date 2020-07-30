@@ -1,45 +1,73 @@
-import React from 'react';
-import { Container, FormContent, Input, AvatarInput, Data, Image } from './style';
-import defaultUser from '../../assets/user.png'
+import React, { useState, useCallback, ChangeEvent } from 'react';
+import defaultUser from '../../assets/user.jpg';
+import Cropper from '../Cropper';
+import { Container, ImageInput, FormContent, Input } from './style';
+import { FiCamera, FiHome, FiUser, FiMail, FiPhone } from 'react-icons/fi';
 
 const Form: React.FC = () => {
 
+  const [userAvatar, setUserAvatar] = useState<string>(defaultUser);
+  const [cropper, setCropper] = useState(false);
+  const [image, setImage] = useState<string>('');
+
+
+  const handleAvatarChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setImage(URL.createObjectURL(e.target.files[0]));
+      setCropper(true);
+    }
+  }, []);
+
   return (
-    <Container>
-      <FormContent>
-        <Data>
-          <h2>Bem-vindo(a)! Para realizar o seu cadastro, preencha os campos abaixo:</h2>
+    <>
+      <Container>
+        <FormContent>
+
+          <ImageInput>
+            <img src={userAvatar} alt='avatar' />
+            <label>
+              <FiCamera size={22}/>
+              <input type='file' accept='image/*' onChange={handleAvatarChange} />
+            </label>
+          </ImageInput>
 
           <Input>
-            <h4>Digite o seu nome:</h4>
+            <div>
+              <FiUser size={24} />
+              <span>Nome:</span>
+            </div>
             <input type='text' />
           </Input>
 
           <Input>
-            <h4>Digite o seu e-mail:</h4>
+            <div>
+              <FiMail size={24} />
+              <span>E-mail:</span>
+            </div>
             <input type='text' />
           </Input>
 
-
           <Input>
-            <h4>Digite o seu departamento:</h4>
+            <div>
+              <FiHome size={24} />
+              <span>Depertamento:</span>
+            </div>
             <input type='text' />
           </Input>
 
-
           <Input>
-            <h4>Digite o seu telefone:</h4>
-            <input type='phone' />
+            <div>
+              <FiPhone size={24} />
+              <span>Telefone:</span>
+            </div>
+            <input type='text' />
           </Input>
-        </Data>
-        <Image>
-          <img src={defaultUser} alt='profile photo' />
-          <AvatarInput>
-            <input type='file' />
-          </AvatarInput>
-        </Image>
-      </FormContent>
-    </Container>
+
+          <button type='submit'>Enviar</button>
+        </FormContent>
+      </Container>
+      {cropper && <Cropper src={image} setCropper={setCropper} setSrc={setUserAvatar} />}
+    </>
   )
 
 }
