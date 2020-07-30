@@ -17,7 +17,7 @@ export const FormContent = styled.form`
 
   button {
     width: 80%;
-    background: #45565E;
+    background: #23395B;
     margin: 20px 0;
     color: white;
     border-radius: 12px;
@@ -33,19 +33,21 @@ export const Input = styled.label`
 
     svg { 
       margin-right: 10px;
-      color: #45565E;
+      color: #23395B;
     }
     
     span {
       font-weight: bold;
+      font-size: 16px;
     }
   }
 
   input {
     width: 100%;
     border: 0;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #23395B;
     padding: 8px 4px;
+    font-size: 14px;
 
 
     &:focus {
@@ -78,7 +80,7 @@ export const ImageInput = styled.div`
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background: #5D737E;
+    background: #23395B;
     color: white;
 
     input {

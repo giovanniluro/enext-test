@@ -8,9 +8,10 @@ interface CropperProps {
   src: string;
   setSrc: (image: any) => void;
   setCropper: (cropper: boolean) => void;
+  setImg: (image: any) => void;
 }
 
-const Cropper: React.FC<CropperProps> = ({ src, setSrc, setCropper }) => {
+const Cropper: React.FC<CropperProps> = ({ src, setSrc, setCropper, setImg }) => {
 
   const [image, setImage] = useState<any>(null);
   const [crop, setCrop] = useState<any>({ width: 200, height: 200, aspect: 1 / 1,  });
@@ -39,15 +40,17 @@ const Cropper: React.FC<CropperProps> = ({ src, setSrc, setCropper }) => {
 
       const base64Image = canvas.toDataURL('image/jpeg');
       setSrc(base64Image);
+      setImg('');
     }
 
     setCropper(false);
-  }, [image, crop]);
+  }, [image, crop, setSrc, setImg, setCropper]);
 
   //Closing the cropper view
   const handleClose = useCallback(() => {
-    setCropper(false)
-  }, []);
+    setCropper(false);
+    setImg('');
+  }, [setCropper, setImg]);
 
   return (
     <Container>

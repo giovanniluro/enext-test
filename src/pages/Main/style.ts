@@ -11,7 +11,14 @@ export const Container = styled.div`
 export const Header = styled.div`
   width: 100%;
   height: 15%;
-  background: #5D737E;
+  background: #23395B;
+
+  h2 {
+    padding: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
 `
 export const Content = styled.div`
   min-width: 60%;
@@ -20,4 +27,19 @@ export const Content = styled.div`
   margin-top: -40px;
   background: white;
   border-radius: 14px;
+  animation: popup .6s;
+
+  @keyframes popup {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    } 
+    40% {
+      opacity: 1;
+      transform: scale(1.1);
+    } 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 `

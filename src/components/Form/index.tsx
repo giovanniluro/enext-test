@@ -6,11 +6,15 @@ import { FiCamera, FiHome, FiUser, FiMail, FiPhone } from 'react-icons/fi';
 
 const Form: React.FC = () => {
 
-  const [userAvatar, setUserAvatar] = useState<string>(defaultUser);
   const [cropper, setCropper] = useState(false);
   const [image, setImage] = useState<string>('');
+  const [userAvatar, setUserAvatar] = useState<string>(defaultUser);
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [departament, setDepartament] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
 
-
+  //Handling image upload
   const handleAvatarChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setImage(URL.createObjectURL(e.target.files[0]));
@@ -18,15 +22,20 @@ const Form: React.FC = () => {
     }
   }, []);
 
+  const handleFormSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+  }, []);
+
   return (
     <>
       <Container>
-        <FormContent>
+        <FormContent onSubmit={handleFormSubmit}>
 
           <ImageInput>
             <img src={userAvatar} alt='avatar' />
             <label>
-              <FiCamera size={22}/>
+              <FiCamera size={22} />
               <input type='file' accept='image/*' onChange={handleAvatarChange} />
             </label>
           </ImageInput>
@@ -36,7 +45,7 @@ const Form: React.FC = () => {
               <FiUser size={24} />
               <span>Nome:</span>
             </div>
-            <input type='text' />
+            <input type='text' value={name} onChange={e => setName(e.target.value)}/>
           </Input>
 
           <Input>
@@ -44,7 +53,7 @@ const Form: React.FC = () => {
               <FiMail size={24} />
               <span>E-mail:</span>
             </div>
-            <input type='text' />
+            <input type='email' value={email} onChange={e => setEmail(e.target.value)}/>
           </Input>
 
           <Input>
@@ -52,7 +61,7 @@ const Form: React.FC = () => {
               <FiHome size={24} />
               <span>Depertamento:</span>
             </div>
-            <input type='text' />
+            <input type='text' value={departament} onChange={e => setDepartament(e.target.value)}/>
           </Input>
 
           <Input>
@@ -60,13 +69,13 @@ const Form: React.FC = () => {
               <FiPhone size={24} />
               <span>Telefone:</span>
             </div>
-            <input type='text' />
+            <input type='tel' value={phone} onChange={e => setPhone(e.target.value)}/>
           </Input>
 
           <button type='submit'>Enviar</button>
         </FormContent>
       </Container>
-      {cropper && <Cropper src={image} setCropper={setCropper} setSrc={setUserAvatar} />}
+      {cropper && <Cropper src={image} setCropper={setCropper} setSrc={setUserAvatar} setImg={setImage} />}
     </>
   )
 

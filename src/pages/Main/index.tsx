@@ -7,7 +7,7 @@ const Main: React.FC = () => {
   return (
     <>
       <Header>
-
+        <h2>Novo Cadastro</h2>
       </Header>
       <Container>
         <Content>
