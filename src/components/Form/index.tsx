@@ -30,6 +30,17 @@ const Form: React.FC = () => {
   const handleFormSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormIsDone(true);
+
+    //Dados para serem enviados ao backend
+    const data = new FormData();
+    data.append('avatar', userAvatar);
+    data.append('name', name);
+    data.append('email', email);
+    data.append('departament', departament);
+    data.append('phone', phone);
+
+    //await api.push('/user', data);
+
   }, []);
 
   return (
