@@ -20,6 +20,7 @@ export const Container = styled.div`
     font-size: 24px;
     font-weight: 500;
     line-height: 22px;
+    text-align: center;
 
     span {
       font-weight: 700;
