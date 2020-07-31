@@ -39,10 +39,13 @@ export const Content = styled.div`
   button {
     background: #23395B;
     color: white;
+    border-radius: 50%;
+    padding: 4px;
   }
 
   .crop-btn {
-    margin-top: 40px;
+    margin: 35px 0;
+    padding: 20px 30px;
     border-radius: 12px;
   }
 
