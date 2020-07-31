@@ -11,7 +11,7 @@ const Thanks: React.FC<ThanksProps> = ({ name, avatar }) => {
   return (
     <Container>
       <img src={avatar} alt='avatar' />
-        <p>Prontinho <span>{name}</span>, o seu cadastro foi finalizado! </p>
+        <p>Prontinho <span>{name.split(' ')[0]}</span>, o seu cadastro foi finalizado! </p>
         <p>Nós agradecemos, e seja bem vindo(a)!</p>
     </Container>
   )
