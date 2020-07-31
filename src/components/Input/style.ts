@@ -26,10 +26,11 @@ export const InputContainer = styled.label`
     border-bottom: 2px solid #23395B;
     padding: 8px 4px;
     font-size: 14px;
-
+    transition: .3s;
 
     &:focus {
       outline: 0;
+      transform: translateY(2px);
     }
   }
 

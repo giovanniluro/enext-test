@@ -45,8 +45,8 @@ export const ImageInput = styled.div`
     justify-content: center;
     z-index: 2;
     transition: .3s;
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     background: #23395B;
     color: white;
