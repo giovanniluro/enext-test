@@ -11,6 +11,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   z-index: 3;
+
+  /* Small Height Devices */
+  @media(max-height: 600px) {
+    height: 800px;
+  }
 `
 
 export const Content = styled.div`

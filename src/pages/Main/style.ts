@@ -29,6 +29,13 @@ export const Content = styled.div`
   background: white;
   border-radius: 14px;
   animation: popup .6s;
+  transition: .3s;
+
+
+  /* Small Width Devices */
+  @media(max-width: 550px) {
+    width: 90%;
+  }
 
   @keyframes popup {
     from {

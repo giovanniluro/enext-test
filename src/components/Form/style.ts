@@ -55,6 +55,12 @@ export const ImageInput = styled.div`
      display: none;
     }
 
+    /* Small Devices */
+    @media(max-width: 550px) {
+      height: 40px;
+      width: 40px;
+    }
+
     &:hover {
       background: #17263A;;
     }

@@ -12,6 +12,12 @@ export default createGlobalStyle`
   html {
     height: 100%;
     width: 100%;
+
+
+    /* Small Height Devices */
+    @media(max-height: 600px) {
+      height: 800px;
+    }
   }
 
   body, #root {
