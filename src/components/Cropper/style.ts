@@ -16,11 +16,17 @@ export const Container = styled.div`
   @media(max-height: 600px) {
     height: 800px;
   }
+
+  /* Small Width Devices */
+  @media(max-width: 349px) {
+    width: 100vw;
+  }
+
 `
 
 export const Content = styled.div`
-  max-height: 70%;
-  min-width: 50%;
+  max-height: 80%;
+  min-width: 350px;
   background: white;
   margin-top: 50px;
   display: flex;
@@ -32,8 +38,8 @@ export const Content = styled.div`
   animation: slideup .5s ease-out;
 
   img {
-    height: 450px;
-    width: 450px;
+    height: 300px;
+    width: 300px;
   }
 
   button {
