@@ -49,7 +49,7 @@ const Form: React.FC = () => {
             <Input icon={<FiUser />} title='Nome:' value={name} setValue={setName} type='text' placeholder='Luiz Henrique' />
             <Input icon={<FiMail />} title='E-mail:' value={email} setValue={setEmail} type='email' placeholder='luiz.henrique@outlook.com'/>
             <Input icon={<FiHome />} title='Departamento:' value={departament} setValue={setDepartament} type='text' placeholder='Departamento de T.I' />
-            <Input icon={<FiPhone />} title='Telefone:' value={phone} setValue={setPhone} type='text' placeholder='(19)-34684573'/>
+            <Input icon={<FiPhone />} title='Telefone:' value={phone} setValue={setPhone} type='tel' placeholder='(19)-34684573'/>
               
             <button type='submit'>Enviar</button>
           </FormContent>
